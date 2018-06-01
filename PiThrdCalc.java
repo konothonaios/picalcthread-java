@@ -1,23 +1,22 @@
 class PiThrdCalc extends Thread {
 	private int myId;
-    private int numThreads;
-    private double [] table;
-    private int tableSize;
+    	private int numThreads;
+    	private double [] table;
+   	private int tableSize;
 	private int myStart;
-    private int myStop;
-    private double myStep;
+   	private int myStop;
+    	private double myStep;
 
-	// Constructor
 	public PiThrdCalc(int id, int threads, double[] array, int size, double step) {
-        myId = id;
-        numThreads = threads;
+        	myId = id;
+        	numThreads = threads;
 		table = array;
-        tableSize = size;
-        myStep = step;
+        	tableSize = size;
+        	myStep = step;
 		myStart = myId * (tableSize / numThreads);
-        myStop = myStart + (tableSize / numThreads);
-        if (myId == (numThreads - 1))
-        	myStop = tableSize;
+        	myStop = myStart + (tableSize / numThreads);
+        	if (myId == (numThreads - 1))
+        		myStop = tableSize;
 	}
 
 	public void run() {
